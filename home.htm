@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-        /* IMPLEMENTATION: This enables the smooth gliding effect for the buttons */
-        html {
-            scroll-behavior: smooth;
+        
+        /* Enables smooth gliding effect for anchor links */
+        html { 
+            scroll-behavior: smooth; 
         }
-
+        
         body { font-family: 'Inter', sans-serif; }
         .hero-pattern {
             background-color: #0f172a;
@@ -23,330 +23,429 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-<!-- Navigation -->
-<nav class="bg-white shadow-sm fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex items-center">
-                <span class="text-blue-600 text-2xl mr-2"><i class="fa-solid fa-layer-group"></i></span>
-                <span class="font-bold text-xl tracking-tight text-slate-900">Vantage Digital</span>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-blue-600 text-2xl mr-2"><i class="fa-solid fa-layer-group"></i></span>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Vantage Digital</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Services</a>
+                    <a href="#packages" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Pricing</a>
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Why Us</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Book Consultation</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Services</a>
-                <a href="#packages" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Pricing</a>
-                <a href="#about" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Why Us</a>
-                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Book Consultation</a>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <a href="#services" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Services</a>
+            <a href="#packages" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Pricing</a>
+            <a href="#about" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Why Us</a>
+            <a href="#contact" class="block px-4 py-3 text-blue-600 font-bold bg-blue-50">Book Consultation</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-pattern text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Turn Your Local Business Into <br/>
+                <span class="text-blue-400">A Revenue Machine</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+                We don't just build websites. We build systems that get you more customers, 
+                save you 10+ hours a week, and grow your bottom line.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- Button 1: Scrolls to Contact -->
+                <a href="#contact" class="bg-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-600 transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-blue-500/25">
+                    Start Growing Today
+                </a>
+                <!-- Button 2: Scrolls to Services -->
+                <a href="#services" class="bg-slate-800 text-slate-300 border border-slate-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-700 hover:text-white transition-all transform hover:-translate-y-1">
+                    Explore Services
+                </a>
             </div>
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 p-2">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Key Benefits/Stats -->
+    <section id="about" class="bg-white py-12 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">62%</div>
+                    <p class="text-slate-600">of calls to small businesses go unanswered. We fix that.</p>
+                </div>
+                <div class="p-4 border-l-0 md:border-l border-slate-100">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">#1</div>
+                    <p class="text-slate-600">Ranking factor on Google is Reviews. We automate them.</p>
+                </div>
+                <div class="p-4 border-l-0 md:border-l border-slate-100">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <p class="text-slate-600">Customer service with our AI Chatbots.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-blue-600 font-bold uppercase tracking-wide text-sm mb-2">Our Expertise</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Everything You Need to Scale</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fa-solid fa-globe text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900">Web Design & Hosting</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Stunning, mobile-friendly websites designed to convert visitors into paying customers. Fast, secure hosting included.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6">
+                        <i class="fa-solid fa-map-location-dot text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900">Local SEO & GBP</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Dominate local search. We optimize your Google Business Profile so customers find you before your competitors.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6">
+                        <i class="fa-solid fa-star text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900">Reputation Management</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Automated review requests that turn happy customers into 5-star Google reviews on autopilot.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 mb-6">
+                        <i class="fa-solid fa-comment-sms text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900">Missed Call Text-Back</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Never lose a lead again. Our system automatically texts callers back when you can't pick up the phone.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-600 mb-6">
+                        <i class="fa-solid fa-robot text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900">Chatbots & AI</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Answer FAQs, book appointments, and qualify leads 24/7 without lifting a finger.
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-6">
+                        <i class="fa-solid fa-envelope-open-text text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900">Database Reactivation</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        We turn your list of old leads and past customers into immediate revenue with targeted email & SMS campaigns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-blue-600 font-bold uppercase tracking-wide text-sm mb-2">Simple Pricing</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Choose Your Growth Level</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Plan 1 -->
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-blue-300 transition-colors">
+                    <h3 class="text-xl font-bold text-slate-900">The Essentials</h3>
+                    <div class="my-4">
+                        <span class="text-4xl font-bold text-slate-900">$199</span><span class="text-slate-500">/mo</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6">Perfect for new businesses needing a professional presence.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Managed Hosting & SSL</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Website Updates (1 hr)</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Daily Backups</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Uptime Monitoring</li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 px-4 bg-slate-100 text-slate-700 font-bold text-center rounded-lg hover:bg-slate-200 transition">Get Started</a>
+                </div>
+
+                <!-- Plan 2 (Popular) -->
+                <div class="border-2 border-blue-600 rounded-2xl p-8 shadow-xl transform md:-translate-y-4 bg-white relative">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
+                    <h3 class="text-xl font-bold text-slate-900">The Growth</h3>
+                    <div class="my-4">
+                        <span class="text-4xl font-bold text-slate-900">$499</span><span class="text-slate-500">/mo</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6">For established businesses ready to capture more leads.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> <strong>Everything in Essentials</strong></li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Reputation Management</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Missed Call Text-Back</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Quarterly SEO Audit</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Google Business Optimization</li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 px-4 bg-blue-600 text-white font-bold text-center rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Get Started</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-blue-300 transition-colors">
+                    <h3 class="text-xl font-bold text-slate-900">The Dominator</h3>
+                    <div class="my-4">
+                        <span class="text-4xl font-bold text-slate-900">$999</span><span class="text-slate-500">/mo</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6">Aggressive growth for businesses that want it all.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> <strong>Everything in Growth</strong></li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Weekly Social Posts (x2)</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Monthly Email Newsletter</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> 24/7 AI Chatbot Setup</li>
+                        <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Priority Support</li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 px-4 bg-slate-100 text-slate-700 font-bold text-center rounded-lg hover:bg-slate-200 transition">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Niche Section (Tabs) -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-12 bg-slate-900 text-white flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold mb-4">Specialized Solutions</h3>
+                    <p class="text-slate-300 mb-6">We understand the unique challenges of your industry. We don't just offer generic advice; we offer tailored tools.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center"><i class="fa-solid fa-utensils w-8 text-blue-400"></i> Restaurants: Commission-free ordering</li>
+                        <li class="flex items-center"><i class="fa-solid fa-hammer w-8 text-blue-400"></i> Contractors: Project galleries & lead pipelines</li>
+                        <li class="flex items-center"><i class="fa-solid fa-scissors w-8 text-blue-400"></i> Salons: No-show protection systems</li>
+                    </ul>
+                </div>
+                <!-- Placeholder Image for Niche Section -->
+                <div class="md:w-1/2 bg-cover bg-center h-64 md:h-auto" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900">Ready to Grow?</h2>
+                <p class="text-slate-600 mt-2">Book a free 15-minute audit of your digital presence.</p>
+            </div>
+            
+            <!-- Status message container -->
+            <div id="status-message" class="hidden p-4 mb-4 text-sm rounded-lg font-medium" role="alert"></div>
+
+            <form id="lead-form" class="bg-white shadow-xl rounded-2xl p-8 border border-slate-100" onsubmit="submitLeadForm(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+                        <input type="text" id="contact-name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="business-name" class="block text-sm font-medium text-slate-700 mb-2">Business Name</label>
+                        <input type="text" id="business-name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Acme Inc.">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="john@example.com">
+                </div>
+                <div class="mb-6">
+                    <label for="service-interest" class="block text-sm font-medium text-slate-700 mb-2">Which service interests you?</label>
+                    <select id="service-interest" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+                        <option value="">-- Select an option --</option>
+                        <option>Web Design & Hosting</option>
+                        <option>SEO & Reputation Management</option>
+                        <option>Missed Call Text-Back</option>
+                        <option>General Consulting</option>
+                    </select>
+                </div>
+                <div class="mb-8">
+                    <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Message (Optional)</label>
+                    <textarea id="message" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition h-32" placeholder="Tell us about your goals..."></textarea>
+                </div>
+                <button type="submit" id="submit-button" class="w-full bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
+                    Request Free Audit
                 </button>
-            </div>
+            </form>
         </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
-        <a href="#services" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Services</a>
-        <a href="#packages" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Pricing</a>
-        <a href="#about" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Why Us</a>
-        <a href="#contact" class="block px-4 py-3 text-blue-600 font-bold bg-blue-50">Book Consultation</a>
-    </div>
-</nav>
+    </section>
 
-<!-- Hero Section -->
-<header class="hero-pattern text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto relative z-10 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Turn Your Local Business Into <br/>
-            <span class="text-blue-400">A Revenue Machine</span>
-        </h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            We don't just build websites. We build systems that get you more customers,
-            save you 10+ hours a week, and grow your bottom line.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <!-- Button 1: Scrolls to Contact -->
-            <a href="#contact" class="bg-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-600 transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-blue-500/25">
-                Start Growing Today
-            </a>
-            <!-- Button 2: Scrolls to Services -->
-            <a href="#services" class="bg-slate-800 text-slate-300 border border-slate-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-700 hover:text-white transition-all transform hover:-translate-y-1">
-                Explore Services
-            </a>
-        </div>
-    </div>
-</header>
-
-<!-- Key Benefits/Stats -->
-<section id="about" class="bg-white py-12 border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-4">
-                <div class="text-4xl font-bold text-blue-600 mb-2">62%</div>
-                <p class="text-slate-600">of calls to small businesses go unanswered. We fix that.</p>
-            </div>
-            <div class="p-4 border-l-0 md:border-l border-slate-100">
-                <div class="text-4xl font-bold text-blue-600 mb-2">#1</div>
-                <p class="text-slate-600">Ranking factor on Google is Reviews. We automate them.</p>
-            </div>
-            <div class="p-4 border-l-0 md:border-l border-slate-100">
-                <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-                <p class="text-slate-600">Customer service with our AI Chatbots.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-blue-600 font-bold uppercase tracking-wide text-sm mb-2">Our Expertise</h2>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Everything You Need to Scale</h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6">
-                    <i class="fa-solid fa-globe text-xl"></i>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center text-white text-2xl mb-4">
+                    <i class="fa-solid fa-layer-group mr-2 text-blue-500"></i> Vantage Digital
                 </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-900">Web Design & Hosting</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    Stunning, mobile-friendly websites designed to convert visitors into paying customers. Fast, secure hosting included.
-                </p>
+                <p class="max-w-xs">Helping local businesses survive and thrive in the digital age with automation, design, and strategy.</p>
             </div>
-
-            <!-- Service 2 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6">
-                    <i class="fa-solid fa-map-location-dot text-xl"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-900">Local SEO & GBP</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    Dominate local search. We optimize your Google Business Profile so customers find you before your competitors.
-                </p>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6">
-                    <i class="fa-solid fa-star text-xl"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-900">Reputation Management</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    Automated review requests that turn happy customers into 5-star Google reviews on autopilot.
-                </p>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 mb-6">
-                    <i class="fa-solid fa-comment-sms text-xl"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-900">Missed Call Text-Back</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    Never lose a lead again. Our system automatically texts callers back when you can't pick up the phone.
-                </p>
-            </div>
-
-            <!-- Service 5 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-600 mb-6">
-                    <i class="fa-solid fa-robot text-xl"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-900">Chatbots & AI</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    Answer FAQs, book appointments, and qualify leads 24/7 without lifting a finger.
-                </p>
-            </div>
-
-            <!-- Service 6 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-6">
-                    <i class="fa-solid fa-envelope-open-text text-xl"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-900">Database Reactivation</h4>
-                <p class="text-slate-600 leading-relaxed">
-                    We turn your list of old leads and past customers into immediate revenue with targeted email & SMS campaigns.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Packages Section -->
-<section id="packages" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-blue-600 font-bold uppercase tracking-wide text-sm mb-2">Simple Pricing</h2>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Choose Your Growth Level</h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            <!-- Plan 1 -->
-            <div class="border border-slate-200 rounded-2xl p-8 hover:border-blue-300 transition-colors">
-                <h3 class="text-xl font-bold text-slate-900">The Essentials</h3>
-                <div class="my-4">
-                    <span class="text-4xl font-bold text-slate-900">$199</span><span class="text-slate-500">/mo</span>
-                </div>
-                <p class="text-sm text-slate-500 mb-6">Perfect for new businesses needing a professional presence.</p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Managed Hosting & SSL</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Website Updates (1 hr)</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Daily Backups</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Uptime Monitoring</li>
-                </ul>
-                <a href="#contact" class="block w-full py-3 px-4 bg-slate-100 text-slate-700 font-bold text-center rounded-lg hover:bg-slate-200 transition">Get Started</a>
-            </div>
-
-            <!-- Plan 2 (Popular) -->
-            <div class="border-2 border-blue-600 rounded-2xl p-8 shadow-xl transform md:-translate-y-4 bg-white relative">
-                <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
-                <h3 class="text-xl font-bold text-slate-900">The Growth</h3>
-                <div class="my-4">
-                    <span class="text-4xl font-bold text-slate-900">$499</span><span class="text-slate-500">/mo</span>
-                </div>
-                <p class="text-sm text-slate-500 mb-6">For established businesses ready to capture more leads.</p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> <strong>Everything in Essentials</strong></li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Reputation Management</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Missed Call Text-Back</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Quarterly SEO Audit</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-blue-600 mr-2"></i> Google Business Optimization</li>
-                </ul>
-                <a href="#contact" class="block w-full py-3 px-4 bg-blue-600 text-white font-bold text-center rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Get Started</a>
-            </div>
-
-            <!-- Plan 3 -->
-            <div class="border border-slate-200 rounded-2xl p-8 hover:border-blue-300 transition-colors">
-                <h3 class="text-xl font-bold text-slate-900">The Dominator</h3>
-                <div class="my-4">
-                    <span class="text-4xl font-bold text-slate-900">$999</span><span class="text-slate-500">/mo</span>
-                </div>
-                <p class="text-sm text-slate-500 mb-6">Aggressive growth for businesses that want it all.</p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> <strong>Everything in Growth</strong></li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Weekly Social Posts (x2)</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Monthly Email Newsletter</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> 24/7 AI Chatbot Setup</li>
-                    <li class="flex items-center text-slate-700"><i class="fa-solid fa-check text-green-500 mr-2"></i> Priority Support</li>
-                </ul>
-                <a href="#contact" class="block w-full py-3 px-4 bg-slate-100 text-slate-700 font-bold text-center rounded-lg hover:bg-slate-200 transition">Get Started</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Niche Section (Tabs) -->
-<section class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden flex flex-col md:flex-row">
-            <div class="md:w-1/2 p-12 bg-slate-900 text-white flex flex-col justify-center">
-                <h3 class="text-3xl font-bold mb-4">Specialized Solutions</h3>
-                <p class="text-slate-300 mb-6">We understand the unique challenges of your industry. We don't just offer generic advice; we offer tailored tools.</p>
-                <ul class="space-y-4">
-                    <li class="flex items-center"><i class="fa-solid fa-utensils w-8 text-blue-400"></i> Restaurants: Commission-free ordering</li>
-                    <li class="flex items-center"><i class="fa-solid fa-hammer w-8 text-blue-400"></i> Contractors: Project galleries & lead pipelines</li>
-                    <li class="flex items-center"><i class="fa-solid fa-scissors w-8 text-blue-400"></i> Salons: No-show protection systems</li>
+            <div>
+                <h4 class="text-white font-bold mb-4">Services</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400">Web Design</a></li>
+                    <li><a href="#" class="hover:text-blue-400">SEO & Local Search</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Automations</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Reputation Management</a></li>
                 </ul>
             </div>
-            <div class="md:w-1/2 bg-cover bg-center h-64 md:h-auto" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');">
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>hello@vantagedigital.com</li>
+                    <li>(555) 123-4567</li>
+                    <li>Chicago, IL</li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Contact Form -->
-<section id="contact" class="py-20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-slate-900">Ready to Grow?</h2>
-            <p class="text-slate-600 mt-2">Book a free 15-minute audit of your digital presence.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-sm text-center">
+            &copy; 2024 Vantage Digital Consulting. All rights reserved.
         </div>
+    </footer>
 
-        <form class="bg-white shadow-xl rounded-2xl p-8 border border-slate-100">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
-                    <input type="text" id="contact-name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2">Business Name</label>
-                    <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Acme Inc.">
-                </div>
-            </div>
-            <div class="mb-6">
-                <label class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
-                <input type="email" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="john@example.com">
-            </div>
-            <div class="mb-6">
-                <label class="block text-sm font-medium text-slate-700 mb-2">Which service interests you?</label>
-                <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
-                    <option>Web Design & Hosting</option>
-                    <option>SEO & Reputation Management</option>
-                    <option>Missed Call Text-Back</option>
-                    <option>General Consulting</option>
-                </select>
-            </div>
-            <div class="mb-8">
-                <label class="block text-sm font-medium text-slate-700 mb-2">Message (Optional)</label>
-                <textarea class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition h-32" placeholder="Tell us about your goals..."></textarea>
-            </div>
-            <button type="button" onclick="alert('Thank you! In a real website, this would send an email to your inbox.')" class="w-full bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
-                Request Free Audit
-            </button>
-        </form>
-    </div>
-</section>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-<!-- Footer -->
-<footer class="bg-slate-900 text-slate-400 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="col-span-1 md:col-span-2">
-            <div class="flex items-center text-white text-2xl mb-4">
-                <i class="fa-solid fa-layer-group mr-2 text-blue-500"></i> Vantage Digital
-            </div>
-            <p class="max-w-xs">Helping local businesses survive and thrive in the digital age with automation, design, and strategy.</p>
-        </div>
-        <div>
-            <h4 class="text-white font-bold mb-4">Services</h4>
-            <ul class="space-y-2 text-sm">
-                <li><a href="#" class="hover:text-blue-400">Web Design</a></li>
-                <li><a href="#" class="hover:text-blue-400">SEO & Local Search</a></li>
-                <li><a href="#" class="hover:text-blue-400">Automations</a></li>
-                <li><a href="#" class="hover:text-blue-400">Reputation Management</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="text-white font-bold mb-4">Contact</h4>
-            <ul class="space-y-2 text-sm">
-                <li>hello@vantagedigital.com</li>
-                <li>(555) 123-4567</li>
-                <li>Chicago, IL</li>
-            </ul>
-        </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-sm text-center">
-        &copy; 2024 Vantage Digital Consulting. All rights reserved.
-    </div>
-</footer>
+        // --- Firebase Initialization and Auth Setup ---
+        let db;
+        let auth;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
-<script>
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
+        try {
+            const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+            const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-    // Toggle mobile menu
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
 
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.add('hidden');
+            // Authenticate user
+            if (initialAuthToken) {
+                await signInWithCustomToken(auth, initialAuthToken);
+            } else {
+                await signInAnonymously(auth);
+            }
+            console.log("Firebase initialized and user signed in.");
+
+        } catch (error) {
+            console.error("Error during Firebase initialization or sign-in:", error);
+            // Non-blocking error: allow the rest of the page to load, but form won't work.
+        }
+
+        // --- Form Submission Logic ---
+        const statusMessage = document.getElementById('status-message');
+        const submitButton = document.getElementById('submit-button');
+        const form = document.getElementById('lead-form');
+
+        function displayMessage(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+            if (type === 'success') {
+                statusMessage.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                statusMessage.classList.add('bg-red-100', 'text-red-800');
+            }
+        }
+
+        async function submitLeadForm(event) {
+            event.preventDefault();
+            statusMessage.classList.add('hidden'); // Clear previous message
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            const leadData = {
+                fullName: document.getElementById('contact-name').value,
+                businessName: document.getElementById('business-name').value,
+                email: document.getElementById('email').value,
+                serviceInterest: document.getElementById('service-interest').value,
+                message: document.getElementById('message').value,
+                submissionTime: new Date(),
+                userId: auth.currentUser ? auth.currentUser.uid : 'anonymous',
+            };
+
+            if (!db) {
+                displayMessage("Error: Database connection failed. Please try again later.", 'error');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Request Free Audit';
+                return;
+            }
+
+            try {
+                // Public collection path to store leads
+                const collectionPath = `/artifacts/${appId}/public/data/leads`;
+                
+                await addDoc(collection(db, collectionPath), leadData);
+
+                displayMessage('Success! Your audit request has been sent. We will contact you soon.', 'success');
+                form.reset(); // Clear the form on successful submission
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                displayMessage('An error occurred during submission. Please check the console for details.', 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Request Free Audit';
+                
+                // Hide success/error message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // Expose function globally for the form's onsubmit handler
+        window.submitLeadForm = submitLeadForm; 
+
+        // --- Mobile Menu Logic ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        // Toggle mobile menu
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
-    });
-</script>
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
