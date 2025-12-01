@@ -7,6 +7,19 @@
     <!-- New Meta Description for SEO -->
     <meta name="description" content="Vantage Digital helps local businesses in Chicago and surrounding areas increase revenue, automate lead capture, and secure 5-star reviews with high-performing websites and digital solutions.">
     <!-- End New Meta Description -->
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vantage Digital | Local Business Consulting">
+    <meta property="og:description" content="Vantage Digital helps local businesses increase revenue, automate lead capture, and secure 5-star reviews with high-performing websites and digital solutions.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=630&fit=crop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vantage Digital | Local Business Consulting">
+    <meta name="twitter:description" content="Turn your local business into a revenue machine with our digital solutions.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=630&fit=crop">
+    <!-- End Open Graph Tags -->
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -27,11 +40,11 @@
 <body class="bg-slate-50 text-slate-800">
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-50">
+    <nav class="bg-white shadow-sm fixed w-full z-50" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-blue-600 text-2xl mr-2"><i class="fa-solid fa-layer-group"></i></span>
+                    <span class="text-blue-600 text-2xl mr-2" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
                     <span class="font-bold text-xl tracking-tight text-slate-900">Vantage Digital</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
@@ -41,14 +54,14 @@
                     <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Book Consultation</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 p-2" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="fa-solid fa-bars text-2xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg" role="menu">
             <a href="#services" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Services</a>
             <a href="#packages" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Pricing</a>
             <a href="#about" class="block px-4 py-3 text-slate-600 hover:bg-slate-50 border-b border-slate-50">Why Us</a>
@@ -369,10 +382,10 @@
             <div>
                 <h4 class="text-white font-bold mb-4">Services</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-blue-400">Web Design</a></li>
-                    <li><a href="#" class="hover:text-blue-400">SEO & Local Search</a></li>
-                    <li><a href="#" class="hover:text-blue-400">Automations</a></li>
-                    <li><a href="#" class="hover:text-blue-400">Reputation Management</a></li>
+                    <li><a href="#services" class="hover:text-blue-400">Web Design</a></li>
+                    <li><a href="#services" class="hover:text-blue-400">SEO & Local Search</a></li>
+                    <li><a href="#services" class="hover:text-blue-400">Automations</a></li>
+                    <li><a href="#services" class="hover:text-blue-400">Reputation Management</a></li>
                 </ul>
             </div>
             <div>
@@ -385,7 +398,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-sm text-center">
-            &copy; 2024 Vantage Digital Consulting. All rights reserved.
+            &copy; <span id="copyright-year"></span> Vantage Digital Consulting. All rights reserved.
         </div>
     </footer>
 
@@ -442,17 +455,34 @@
             submitButton.textContent = 'Submitting...';
 
             const leadData = {
-                fullName: document.getElementById('contact-name').value,
-                businessName: document.getElementById('business-name').value,
-                email: document.getElementById('email').value,
+                fullName: document.getElementById('contact-name').value.trim(),
+                businessName: document.getElementById('business-name').value.trim(),
+                email: document.getElementById('email').value.trim(),
                 serviceInterest: document.getElementById('service-interest').value,
-                message: document.getElementById('message').value,
+                message: document.getElementById('message').value.trim(),
                 submissionTime: new Date(),
                 userId: auth.currentUser ? auth.currentUser.uid : 'anonymous',
             };
 
+            // Client-side validation
+            if (!leadData.fullName || !leadData.businessName || !leadData.email || !leadData.serviceInterest) {
+                displayMessage('Please fill in all required fields.', 'error');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Request Free Audit';
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(leadData.email)) {
+                displayMessage('Please enter a valid email address.', 'error');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Request Free Audit';
+                return;
+            }
+
             if (!db) {
-                displayMessage("Error: Database connection failed. Please try again later.", 'error');
+                displayMessage("Unable to connect to our system. Please try refreshing the page or contact us directly.", 'error');
                 submitButton.disabled = false;
                 submitButton.textContent = 'Request Free Audit';
                 return;
@@ -461,22 +491,28 @@
             try {
                 // Public collection path to store leads
                 const collectionPath = `/artifacts/${appId}/public/data/leads`;
-                
+
                 await addDoc(collection(db, collectionPath), leadData);
 
-                displayMessage('Success! Your audit request has been sent. We will contact you soon.', 'success');
+                displayMessage('✓ Success! Your audit request has been sent. We\'ll contact you within 24 hours.', 'success');
                 form.reset(); // Clear the form on successful submission
             } catch (e) {
                 console.error("Error adding document: ", e);
-                displayMessage('An error occurred during submission. Please check the console for details.', 'error');
+                let errorMsg = 'We couldn\'t process your request right now. Please try again or email us directly at hello@vantagedigital.com';
+                if (e.code === 'permission-denied') {
+                    errorMsg = 'Permission error. Please refresh the page and try again.';
+                } else if (e.code === 'unavailable') {
+                    errorMsg = 'Service temporarily unavailable. Please try again in a moment.';
+                }
+                displayMessage(errorMsg, 'error');
             } finally {
                 submitButton.disabled = false;
                 submitButton.textContent = 'Request Free Audit';
-                
-                // Hide success/error message after 5 seconds
+
+                // Hide success/error message after 7 seconds
                 setTimeout(() => {
                     statusMessage.classList.add('hidden');
-                }, 5000);
+                }, 7000);
             }
         }
 
@@ -489,7 +525,8 @@
 
         // Toggle mobile menu
         btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            const isExpanded = menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', !isExpanded);
         });
 
         // Close mobile menu when a link is clicked
@@ -498,6 +535,9 @@
                 menu.classList.add('hidden');
             });
         });
+
+        // --- Set Dynamic Copyright Year ---
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
