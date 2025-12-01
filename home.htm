@@ -412,26 +412,35 @@
     let db;
     let auth;
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    let isFirebaseReady = false;
 
     try {
         const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-        const app = initializeApp(firebaseConfig);
-        auth = getAuth(app);
-        db = getFirestore(app);
-
-        // Authenticate user
-        if (initialAuthToken) {
-            await signInWithCustomToken(auth, initialAuthToken);
+        // Check if firebaseConfig is valid (e.g., if it has an apiKey)
+        if (Object.keys(firebaseConfig).length === 0 || !firebaseConfig.apiKey) {
+            console.error("Firebase configuration is missing or invalid in this environment. Form submission to DB disabled.");
+            isFirebaseReady = false;
         } else {
-            await signInAnonymously(auth);
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            isFirebaseReady = true;
+
+            // Authenticate user
+            if (initialAuthToken) {
+                await signInWithCustomToken(auth, initialAuthToken);
+            } else {
+                await signInAnonymously(auth);
+            }
+            console.log("Firebase initialized and user signed in.");
         }
-        console.log("Firebase initialized and user signed in.");
 
     } catch (error) {
         console.error("Error during Firebase initialization or sign-in:", error);
         // Non-blocking error: allow the rest of the page to load, but form won't work.
+        isFirebaseReady = false;
     }
 
     // --- Form Submission Logic ---
@@ -447,6 +456,10 @@
         } else {
             statusMessage.classList.add('bg-red-100', 'text-red-800');
         }
+        // Hide success/error message after 7 seconds
+        setTimeout(() => {
+            statusMessage.classList.add('hidden');
+        }, 7000);
     }
 
     async function submitLeadForm(event) {
@@ -462,7 +475,7 @@
             serviceInterest: document.getElementById('service-interest').value,
             message: document.getElementById('message').value.trim(),
             submissionTime: new Date(),
-            userId: auth.currentUser ? auth.currentUser.uid : 'anonymous',
+            userId: auth && auth.currentUser ? auth.currentUser.uid : 'anonymous',
         };
 
         // Client-side validation
@@ -482,8 +495,9 @@
             return;
         }
 
-        if (!db) {
-            displayMessage("Unable to connect to our system. Please try refreshing the page or contact us directly.", 'error');
+        if (!isFirebaseReady || !db) {
+            // Friendly error for external hosting where Firebase credentials are not available
+            displayMessage("Thank you for your request! We couldn't automatically log it to the database, but please contact us directly at aneesh.chan@gmail.com.", 'error');
             submitButton.disabled = false;
             submitButton.textContent = 'Request Free Audit';
             return;
@@ -509,11 +523,6 @@
         } finally {
             submitButton.disabled = false;
             submitButton.textContent = 'Request Free Audit';
-
-            // Hide success/error message after 7 seconds
-            setTimeout(() => {
-                statusMessage.classList.add('hidden');
-            }, 7000);
         }
     }
 
